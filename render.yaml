@@ -1,0 +1,25 @@
+# Render kurulum tarifi. Render bu dosyayı okuyup botu otomatik ayarlar.
+# Gizli anahtarlar (sync: false) depoya girmez; Render panelinde sen girersin.
+services:
+  - type: worker
+    name: karakutu
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    # Fikirlerin yeniden başlatmalarda kaybolmaması için kalıcı disk.
+    disk:
+      name: karakutu-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: KARAKUTU_DATA
+        value: /data/karakutu.json
+      - key: KARAKUTU_MODEL
+        value: claude-opus-5-5
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_OWNER_ID
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
