@@ -37,7 +37,10 @@ npm start
 - Değişiklikleri dal + PR ile yap, sadece Emre isteyince `main`'e birleştir.
 - API anahtarı, bot token'ı asla depoya girmez; sohbette şifre/anahtar isteme.
 
-## Durum (son güncelleme: 26 Kasım 2026)
-**İlk kurulum yapıldı.** Çekirdek bot hazır: sohbet (beyin), /fikir, /fikirler, /tamam, /sil, /durum, /yardim. Typecheck geçiyor.
+## Yayın (Render)
+Emre'nin bilgisayarı yok, sadece telefon. Bot Render'da **worker** olarak çalışır (`render.yaml`). Kalıcı disk `/data` → fikirler kaybolmaz. Gizli anahtarlar (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_OWNER_ID`, `ANTHROPIC_API_KEY`) `sync: false` ile Render panelinden girilir, depoya girmez. `tsx` çalışma bağımlılığı (Render prod'da devDeps atlar). Starter planı ~7–8 $/ay; Render'a geçmeden ücreti Emre'ye açıkça sor.
 
-**Bekleyenler:** Emre'nin Telegram bot anahtarını alması; (isteğe bağlı) Anthropic API anahtarı; botu 7/24 çalıştıracak bir yer (sunucu); Yeşilea'ya PR hazırlama özelliği (henüz yok).
+## Durum (son güncelleme: 26 Kasım 2026)
+**İlk kurulum + Render hazır.** Çekirdek bot: sohbet (beyin), /fikir, /fikirler, /tamam, /sil, /durum, /yardim. Typecheck geçiyor. `render.yaml` eklendi.
+
+**Bekleyenler:** PR #1'i main'e birleştirmek (Render blueprint main'den okur); Emre'nin Render'da repoyu bağlayıp anahtarları girmesi; (isteğe bağlı) Anthropic API anahtarı; Yeşilea'ya PR hazırlama özelliği (henüz yok).
